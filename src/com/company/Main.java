@@ -60,7 +60,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         tempInCelsius = scanner.nextFloat();
 
-        System.out.println("Temperature in Farhenheit: " + (1.8 * tempInCelsius + 32));
+        System.out.println("Temperature in Fahrenheit: " + (1.8 * tempInCelsius + 32));
     }
     static void Task6(){
         double income;
@@ -79,15 +79,30 @@ public class Main {
         System.out.println("Please enter loan amount: ");
         Scanner scanner = new Scanner(System.in);
         loan = scanner.nextDouble();
+
+        if (loan  > 10000) {
+            loan = 5000;
+        } else if (loan < 100) {
+            System.out.println("Minimum loan is 100");
+
+        }
+
         System.out.println("Please enter number of installments: ");
         numberOfInstallments = scanner.nextInt();
-        if (loan < 100 || loan  > 10000){
-            System.out.println("Loan amount is set to 5000");
-            if (numberOfInstallments < 6 || numberOfInstallments > 48){
-                System.out.println("Number of installments are set to 36");
 
+        if (numberOfInstallments < 6) {
+            System.out.println("Minimum number of installments is 6");
+        } else if (numberOfInstallments <= 12) {
+            System.out.println("Calculated monthly loan instalment: " + (loan / numberOfInstallments + (loan / numberOfInstallments * 0.025)));
+        } else if (numberOfInstallments <= 24) {
+            System.out.println("Calculated monthly loan installment: " + (loan / numberOfInstallments + (loan / numberOfInstallments * 0.05)));
+        } else if (numberOfInstallments <= 48) {
+            System.out.println("Calculated monthly loan installment: " + (loan / numberOfInstallments + (loan / numberOfInstallments * 0.1)));
+        } else {
+            System.out.println("Calculated monthly loan installment: " + (loan/36 + (loan * 0.1)));
             }
+
         }
     }
 
-}
+
