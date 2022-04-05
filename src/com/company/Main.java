@@ -1,6 +1,8 @@
 package com.company;
 
+import java.awt.*;
 import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -11,10 +13,12 @@ public class Main {
 //        Task4();
 //        Task5();
 //        Task6();
-        Task7();
+//        Task7();
+        Task8();
     }
+
     static void Task1_2() {
-	// Task 1 & 2
+        // Task 1 & 2
 
         int num;
         System.out.println("Please enter number: ");
@@ -26,6 +30,7 @@ public class Main {
             System.out.println("Entered number is odd");
         }
     }
+
     static void Task3() {
         int var;
         System.out.println("Please enter variable: ");
@@ -40,6 +45,7 @@ public class Main {
 
         }
     }
+
     static void Task4() {
         int height;
         float weight;
@@ -54,7 +60,8 @@ public class Main {
             System.out.println("I'm sorry you can't go!");
         }
     }
-    static void Task5(){
+
+    static void Task5() {
         float tempInCelsius;
         System.out.println("Please enter temperature in Celsius");
         Scanner scanner = new Scanner(System.in);
@@ -62,7 +69,8 @@ public class Main {
 
         System.out.println("Temperature in Fahrenheit: " + (1.8 * tempInCelsius + 32));
     }
-    static void Task6(){
+
+    static void Task6() {
         double income;
         System.out.println("Please enter your income:");
         Scanner scanner = new Scanner(System.in);
@@ -73,14 +81,15 @@ public class Main {
             System.out.println("Your taxes: " + (14839.02 + ((income - 85528) * 0.32)));
         }
     }
-    static void Task7(){
+
+    static void Task7() {
         double loan;
         int numberOfInstallments;
         System.out.println("Please enter loan amount: ");
         Scanner scanner = new Scanner(System.in);
         loan = scanner.nextDouble();
 
-        if (loan  > 10000) {
+        if (loan > 10000) {
             loan = 5000;
         } else if (loan < 100) {
             System.out.println("Minimum loan is 100");
@@ -99,10 +108,46 @@ public class Main {
         } else if (numberOfInstallments <= 48) {
             System.out.println("Calculated monthly loan installment: " + (loan / numberOfInstallments + (loan / numberOfInstallments * 0.1)));
         } else {
-            System.out.println("Calculated monthly loan installment: " + (loan/36 + (loan * 0.1)));
-            }
+            System.out.println("Calculated monthly loan installment: " + (loan / 36 + (loan / 36 * 0.1)));
+        }
 
+    }
+
+    static void Task8() {
+        int year;
+        int month;
+        int days;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter year:");
+        year = scanner.nextInt();
+
+        System.out.println("Please enter month:");
+        month = scanner.nextInt();
+
+        System.out.println("Please enter days:");
+        days = scanner.nextInt();
+
+        System.out.println("Date for validation: " + year + "-" + month + "-" + days);
+
+        if (month >= 1 && month <= 12) {
+            System.out.println("\u001B[32m" + "Month entered is valid" + "\u001B[0m");
+            ;
+        } else {
+            System.out.println("\u001B[31m" + "Month is not valid! Please reenter" + "\u001B[0m");
+        }
+
+        if (year >= 1000 && year <= 1999) {
+            System.out.println("\u001B[32m" + "Year entered is valid" + "\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m" + "Year is not valid! Please reenter." + "\u001B[0m");
+        }
+
+        if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println("Entered year is leap year");
+        } else {
+            System.out.println("The year is not leap year");
         }
     }
+}
 
 
