@@ -93,7 +93,6 @@ public class Main {
             loan = 5000;
         } else if (loan < 100) {
             System.out.println("Minimum loan is 100");
-
         }
 
         System.out.println("Please enter number of installments: ");
@@ -131,8 +130,7 @@ public class Main {
 
         if (month >= 1 && month <= 12) {
             System.out.println("\u001B[32m" + "Month entered is valid" + "\u001B[0m");
-            ;
-        } else {
+            } else {
             System.out.println("\u001B[31m" + "Month is not valid! Please reenter" + "\u001B[0m");
         }
 
@@ -140,14 +138,13 @@ public class Main {
             System.out.println("\u001B[32m" + "Year entered is valid" + "\u001B[0m");
         } else {
             System.out.println("\u001B[31m" + "Year is not valid! Please reenter." + "\u001B[0m");
+            return;
         }
 
         if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
             System.out.println("Entered year is leap year");
         } else {
             System.out.println("The year is not leap year");
+            }
         }
     }
-}
-
-
